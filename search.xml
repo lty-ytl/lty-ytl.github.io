@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>舍友的照片</title>
-    <url>/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87-md/</url>
-    <content><![CDATA[<p><img src="/f82d582edb01d0891ea9b71393af41d.jpg" alt="Alt text"></p>
-]]></content>
-      <tags>
-        <tag>photo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的测试文章</title>
     <url>/2023/08/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="这是我的测试文章"><a href="#这是我的测试文章" class="headerlink" title="这是我的测试文章"></a>这是我的测试文章</h1><p>欢迎来到我的测试博客文章。这里是一个示例 Markdown 文章，用于测试 Hexo 的功能和流程。</p>
@@ -28,6 +19,15 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zhaopian</title>
+    <url>/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/</url>
+    <content><![CDATA[<p><img src="/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/f82d582edb01d0891ea9b71393af41d.jpg" alt="Alt text"></p>
+]]></content>
+      <tags>
+        <tag>照片</tag>
       </tags>
   </entry>
 </search>

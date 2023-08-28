@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>我的测试文章</title>
+    <url>/2023/08/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="这是我的测试文章"><a href="#这是我的测试文章" class="headerlink" title="这是我的测试文章"></a>这是我的测试文章</h1><p>欢迎来到我的测试博客文章。这里是一个示例 Markdown 文章，用于测试 Hexo 的功能和流程。</p>
+<h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><p>这里是正文内容。你可以随意添加更多的段落、列表、链接等等。</p>
+<ul>
+<li>列表项一</li>
+<li>列表项二</li>
+<li>列表项三</li>
+</ul>
+<p>你也可以插入链接：<a href="https://www.openai.com/">OpenAI</a>。</p>
+<p>感谢阅读这个测试文章！o.O?</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+</search>

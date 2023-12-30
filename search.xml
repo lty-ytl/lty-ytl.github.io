@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>舍友的照片</title>
+    <url>/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/</url>
+    <content><![CDATA[<p><img src="/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/f82d582edb01d0891ea9b71393af41d.jpg" alt="Alt text"></p>
+]]></content>
+      <tags>
+        <tag>照片</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2023/12/30/%E6%95%B0%E5%AD%A6%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<h1 id="数学实验作业"><a href="#数学实验作业" class="headerlink" title="数学实验作业"></a>数学实验作业</h1><h2 id="班级"><a href="#班级" class="headerlink" title="班级"></a>班级</h2><p>2021120101</p>
+<h2 id="姓名"><a href="#姓名" class="headerlink" title="姓名"></a>姓名</h2><p>刘通源</p>
+<h2 id="学号"><a href="#学号" class="headerlink" title="学号"></a>学号</h2><p>2021905058</p>
+<h1 id="作业内容"><a href="#作业内容" class="headerlink" title="作业内容"></a>作业内容</h1><p>一 ：</p>
+<p>程序</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>;<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>;<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>;<span class="number">4</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>];</span><br><span class="line">b=[<span class="number">5</span>;<span class="number">4</span>;<span class="number">3</span>;<span class="number">2</span>];</span><br><span class="line">x=inv(A)*b</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x =</span><br><span class="line"></span><br><span class="line">   <span class="number">-1.8000</span></span><br><span class="line">    <span class="number">1.8667</span></span><br><span class="line">    <span class="number">3.8667</span></span><br><span class="line">   <span class="number">-2.1333</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二："><a href="#二：" class="headerlink" title="二："></a>二：</h3><p>程序</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 定义两个向量</span></span><br><span class="line">x = <span class="built_in">linspace</span>(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">100</span>);</span><br><span class="line">y = <span class="built_in">linspace</span>(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 生成二维网格</span></span><br><span class="line">[X, Y] = <span class="built_in">meshgrid</span>(x, y);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘图</span></span><br><span class="line">a=<span class="number">4</span>;b=<span class="number">5</span>;</span><br><span class="line">Z=X.^<span class="number">2</span>/a^<span class="number">2</span>-Y.^<span class="number">2</span>/b^<span class="number">2</span>;</span><br><span class="line">surf(X, Y, Z);</span><br><span class="line">xlabel(<span class="string">&#x27;X轴&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;Y轴&#x27;</span>);</span><br><span class="line">zlabel(<span class="string">&#x27;Z轴&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<p><img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220121226635.png"></p>
+<h3 id="三："><a href="#三：" class="headerlink" title="三："></a>三：</h3><p>思路：不妨记$y&#x3D;y_1,\frac {\rm{d}y_1} {\rm{d}t}&#x3D;y_2,\frac {\rm{d}y_2} {\rm{d}t}&#x3D;\frac {\rm{d}^2 y}{\rm{d}t^2},那么有\begin{cases} \frac {\rm{d}y_1} {\rm{d}t}&#x3D;y_2 \ \frac {\rm{d}y_2} {\rm{d}t}&#x3D;7*(1-y_1^2)*y_2-y_1 \end{cases}$ </p>
+<p>那么这样我们就把一个二阶微分方程拆成了两个一阶微分方程，所以需要同时进行两个龙格库塔迭代来进行计算</p>
+<p>程序：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 表示微分方程组</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dy</span>=<span class="title">Fun</span><span class="params">(x,y)</span></span></span><br><span class="line">dy=<span class="built_in">zeros</span>(<span class="built_in">size</span>(y));</span><br><span class="line">dy(<span class="number">1</span>)=y(<span class="number">2</span>); <span class="comment">%dy(1)表示以y的一阶导为f(x,y)</span></span><br><span class="line">dy(<span class="number">2</span>)=<span class="number">7</span>*(<span class="number">1</span>-y(<span class="number">1</span>).^<span class="number">2</span>)*y(<span class="number">2</span>)-y(<span class="number">1</span>);  <span class="comment">%dy(2)表示以y的二阶导为f(x,y)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 龙格库塔法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span>=<span class="title">RK</span><span class="params">(t,h,y)</span></span></span><br><span class="line"></span><br><span class="line">len = <span class="built_in">length</span>(t);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:len			<span class="comment">%循环：直到求完最后一个t取值</span></span><br><span class="line"></span><br><span class="line">K1 = Fun(t(<span class="built_in">i</span><span class="number">-1</span>),y(<span class="built_in">i</span><span class="number">-1</span>,:));  		<span class="comment">% K1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">K2 = Fun(t(<span class="built_in">i</span><span class="number">-1</span>)+<span class="number">1</span>/<span class="number">2</span>*h , y(<span class="built_in">i</span><span class="number">-1</span>,:)+<span class="number">1</span>/<span class="number">2</span>*h.*K1);		<span class="comment">% K2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">K3 = Fun(t(<span class="built_in">i</span><span class="number">-1</span>)+<span class="number">1</span>/<span class="number">2</span>*h , y(<span class="built_in">i</span><span class="number">-1</span>,:)+<span class="number">1</span>/<span class="number">2</span>*h.*K2);		<span class="comment">% K3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">K4 = Fun(t(<span class="built_in">i</span><span class="number">-1</span>)+h , y(<span class="built_in">i</span><span class="number">-1</span>,:)+h.*K3);		<span class="comment">% K4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y(<span class="built_in">i</span>,:) = y(<span class="built_in">i</span><span class="number">-1</span>,:)+h/<span class="number">6.</span>*(K1 + <span class="number">2</span>*K2 + <span class="number">2</span>*K3 + K4);         </span><br><span class="line">													</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%求解过程</span></span><br><span class="line">t=[<span class="number">0</span> : <span class="number">0.01</span> :<span class="number">20</span>]; <span class="comment">% t——行向量</span></span><br><span class="line">h=<span class="number">0.01</span>; <span class="comment">% 步长</span></span><br><span class="line">y=<span class="built_in">zeros</span>(<span class="built_in">length</span>(t) , <span class="number">2</span>);	</span><br><span class="line">y(<span class="number">1</span>,:)=[<span class="number">1.0</span> , <span class="number">0.0</span>]; <span class="comment">% y的初值1.0 ，y一阶导的初值 0.0</span></span><br><span class="line"><span class="comment">% 函数调用</span></span><br><span class="line">Y=RK(t,h,y); <span class="comment">% 调用4阶R-K法，输入参数t，h，y</span></span><br><span class="line"><span class="comment">%画图</span></span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line">grid on</span><br><span class="line"><span class="built_in">plot</span>(t , Y(:,<span class="number">1</span>)) <span class="comment">%输出 Y的第一列，即原函数关于t的曲线</span></span><br><span class="line">tlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220185002673.png" alt="image-20231220185002673"></p>
+<h3 id="四："><a href="#四：" class="headerlink" title="四："></a>四：</h3><p>程序</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">points = <span class="number">100000</span>; <span class="comment">% 随机点数量</span></span><br><span class="line">x = <span class="built_in">rand</span>(<span class="number">1</span>,points)*<span class="number">2</span><span class="number">-1</span>; <span class="comment">% 令x随机落在区间【-1，1】</span></span><br><span class="line">y = <span class="built_in">rand</span>(<span class="number">1</span>,points)*<span class="number">2</span><span class="number">-1</span>; <span class="comment">% 令y随机落在区间【-1，1】</span></span><br><span class="line">d = <span class="built_in">sqrt</span>(x.^<span class="number">2</span>+y.^<span class="number">2</span>); <span class="comment">% 计算点到原点距离</span></span><br><span class="line">inside = sum(d&lt;=<span class="number">1</span>); <span class="comment">% 统计落在单位圆内点数目</span></span><br><span class="line"><span class="built_in">pi</span> = <span class="number">4</span>*inside/points <span class="comment">% 由面积关系可得到</span></span><br><span class="line"><span class="comment">%绘制示意图</span></span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">&#x27;go&#x27;</span>) ; <span class="comment">% 画出散点</span></span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">theta = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">1000</span>);</span><br><span class="line">axis equal; <span class="comment">% 令坐标轴比例相等</span></span><br><span class="line"><span class="built_in">plot</span>(<span class="built_in">cos</span>(theta),<span class="built_in">sin</span>(theta),<span class="string">&#x27;r-&#x27;</span>); <span class="comment">%画出圆</span></span><br><span class="line">title(<span class="string">&#x27;蒙特卡洛散点图&#x27;</span>);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;随机点&#x27;</span>,<span class="string">&#x27;圆&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>结果:</p>
+<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231222003947601.png" alt="image-20231222003947601" style="zoom: 50%;" />
+
+<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231222235040050.png" alt="image-20231222235040050" style="zoom: 50%;" />
+
+<h3 id="五："><a href="#五：" class="headerlink" title="五："></a>五：</h3><p>绘图程序</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">load(<span class="string">&#x27;data.mat&#x27;</span>, <span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">histogram(x,<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<p>直方图</p>
+<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220160523076.png" alt=" " style="zoom: 33%;" />
+
+<p>根据图形可判断此分布为正态分布，接下来用样本均值和样本方差估计参数</p>
+<p>结果为：<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220161338029.png" alt="image-20231220161338029" style="zoom: 50%;" /></p>
+<p>故估计值如下： </p>
+<p>$\mu &#x3D;594$</p>
+<p> $\sigma &#x3D;204.1301$ </p>
+<h3 id="六："><a href="#六：" class="headerlink" title="六："></a>六：</h3><p>利用阻滞增长模型（Logistic模型）进行人口预测，设增长率为$r$ ,在人口较少时可以把$r$ 看作常数，当人口增加到一定数目时$r$ 视为一个随人口增加而减少的变量，即增长率$r$ 表示为人口$x(t)的函数r(x)，且r(x)为x减函数$ 。</p>
+<p>$设人口上限为x_m，r(x)&#x3D;r-sx(r,s&gt;0),r~固有增长率(x很小时),又r(x_m)&#x3D;0 \ \Rightarrow s&#x3D; \frac {r} {x_m} \Rightarrow  r(x)&#x3D;r(1-\frac {x} {x_m})$  </p>
+<p>建立微分方程：</p>
+<p>$ \begin{cases}\frac {\rm{d}x}{\rm{d}t}&#x3D;r(x)x&#x3D;rx(1-\frac {x} {x_m})\ x(t_0)&#x3D;x_0\end{cases} \Rightarrow x(t)&#x3D;\frac{x_m}{1+(\frac{x_m}{x_0}-1)e^{-rt}}$   </p>
+<p>接下来利用非线性最小二乘法估计$r,x_m，$ </p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 已知数据</span></span><br><span class="line">tdata = <span class="number">1810</span>:<span class="number">10</span>:<span class="number">2010</span>;</span><br><span class="line">xdata = [<span class="number">3.9</span>,<span class="number">5.3</span>,<span class="number">7.2</span>,<span class="number">9.6</span>,<span class="number">12.9</span>,<span class="number">17.1</span>,<span class="number">23.2</span>,<span class="number">31.4</span>,<span class="number">38.6</span>,<span class="number">50.2</span>,<span class="number">62.9</span>,<span class="number">76.0</span>,<span class="number">92.0</span>,<span class="number">106.5</span>,<span class="number">123.2</span>,<span class="number">131.7</span>,<span class="number">150.7</span>,<span class="number">179.3</span>,<span class="number">204.0</span>,<span class="number">226.5</span>,<span class="number">251.4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 定义要拟合的函数</span></span><br><span class="line">fun = @(x, t) x(<span class="number">1</span>) ./ (<span class="number">1</span> + (x(<span class="number">1</span>) / xdata(<span class="number">1</span>) - <span class="number">1</span>) * <span class="built_in">exp</span>(-x(<span class="number">2</span>) * (t - <span class="number">1810</span>))); <span class="comment">% xm=x(1) r=x(2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 初始参数猜测</span></span><br><span class="line">x0 = [<span class="number">280</span>,  <span class="number">1.5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">% 使用 lsqcurvefit 进行拟合</span></span><br><span class="line">x = lsqcurvefit(fun, x0, tdata, xdata);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出拟合的参数</span></span><br><span class="line">xm = x(<span class="number">1</span>);</span><br><span class="line">r_fit = x(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出拟合的参数值</span></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;xm: &#x27;</span> num2str(xm)]);</span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;r: &#x27;</span> num2str(r_fit)]);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘制原始数据和拟合曲线</span></span><br><span class="line"><span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(tdata, xdata, <span class="string">&#x27;o&#x27;</span>, tdata, fun(x, tdata));</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;原始数据&#x27;</span>, <span class="string">&#x27;拟合曲线&#x27;</span>);</span><br><span class="line">xlabel(<span class="string">&#x27;年份&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;x(t)&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;数据拟合&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 要预测的时间点</span></span><br><span class="line">t_prediction = <span class="number">2030</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 使用模型进行预测</span></span><br><span class="line">x_prediction = xm / (<span class="number">1</span> + (xm / xdata(<span class="number">1</span>) - <span class="number">1</span>) * <span class="built_in">exp</span>(-r_fit * (t_prediction - <span class="number">1810</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出预测值</span></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;预测值（&#x27;</span> num2str(t_prediction) <span class="string">&#x27;年）: &#x27;</span> num2str(x_prediction)]);</span><br></pre></td></tr></table></figure>
+
+<p>结果图：</p>
+<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220195154944.png" alt="image-20231220195154944" style="zoom:50%;" />
+
+<p>故预测值为267.1952</p>
+<h3 id="七："><a href="#七：" class="headerlink" title="七："></a>七：</h3><p>利用最小二乘法计算a、b、c、d、e、值：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 输入数据</span></span><br><span class="line">xdata = [<span class="number">5.764</span> <span class="number">6.286</span> <span class="number">6.759</span> <span class="number">7.168</span> <span class="number">7.408</span>];</span><br><span class="line">ydata = [<span class="number">0.648</span> <span class="number">1.202</span> <span class="number">1.823</span> <span class="number">2.526</span> <span class="number">3.360</span>];</span><br><span class="line">syms a b c d e;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算残差</span></span><br><span class="line">T = a * xdata.^<span class="number">2</span> + b * ydata.^<span class="number">2</span> + c * xdata .* ydata + d * xdata + e * ydata + <span class="number">1</span> - ydata;</span><br><span class="line">delta = sum(T.^<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 对 delta 分别对 a, b, c, d, e 求偏导数</span></span><br><span class="line">partial_a = diff(delta, a);</span><br><span class="line">partial_b = diff(delta, b);</span><br><span class="line">partial_c = diff(delta, c);</span><br><span class="line">partial_d = diff(delta, d);</span><br><span class="line">partial_e = diff(delta, e);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 联立求解</span></span><br><span class="line">solutions = solve([partial_a == <span class="number">0</span>, partial_b == <span class="number">0</span>, partial_c == <span class="number">0</span>, partial_d == <span class="number">0</span>, partial_e == <span class="number">0</span>], [a, b, c, d, e]);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 转换解为小数形式</span></span><br><span class="line">a = double(solutions.a);</span><br><span class="line">b = double(solutions.b);</span><br><span class="line">c = double(solutions.c);</span><br><span class="line">d = double(solutions.d);</span><br><span class="line">e = double(solutions.e);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 输出结果保留四位小数</span></span><br><span class="line">fprintf(<span class="string">&#x27;a: %.4f\n&#x27;</span>, a);</span><br><span class="line">fprintf(<span class="string">&#x27;b: %.4f\n&#x27;</span>, b);</span><br><span class="line">fprintf(<span class="string">&#x27;c: %.4f\n&#x27;</span>, c);</span><br><span class="line">fprintf(<span class="string">&#x27;d: %.4f\n&#x27;</span>, d);</span><br><span class="line">fprintf(<span class="string">&#x27;e: %.4f\n&#x27;</span>, e);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘制隐式方程的图形</span></span><br><span class="line">fimplicit(@(x, y) a * x.^<span class="number">2</span> + b * y.^<span class="number">2</span> + c * x .* y + d * x + e * y + <span class="number">1</span>, [<span class="number">-100</span>,<span class="number">100</span>]);</span><br><span class="line">title(<span class="string">&#x27;隐式方程图形&#x27;</span>);</span><br><span class="line">xlabel(<span class="string">&#x27;X轴&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;Y轴&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<img src="C:\Users\lty\AppData\Roaming\Typora\typora-user-images\image-20231220215205912.png" alt="image-20231220215205912" style="zoom:50%;" />
+
+
+
+
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>我的测试文章</title>
     <url>/2023/08/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="这是我的测试文章"><a href="#这是我的测试文章" class="headerlink" title="这是我的测试文章"></a>这是我的测试文章</h1><p>欢迎来到我的测试博客文章。这里是一个示例 Markdown 文章，用于测试 Hexo 的功能和流程。</p>
@@ -22,12 +102,48 @@
       </tags>
   </entry>
   <entry>
-    <title>舍友的照片</title>
-    <url>/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/</url>
-    <content><![CDATA[<p><img src="/2023/08/28/%E8%88%8D%E5%8F%8B%E7%9A%84%E7%85%A7%E7%89%87/f82d582edb01d0891ea9b71393af41d.jpg" alt="Alt text"></p>
+    <title></title>
+    <url>/2023/11/04/%E9%9B%A8%E4%B8%AD%E8%A1%8C%E8%B5%B0/</url>
+    <content><![CDATA[<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>当一个人在雨中行走时，我们想要找到一种行走速度，使得淋雨的量最小。我们可以使用曲面积分和通量概念来建模这个问题。</p>
+<h4 id="问题建模"><a href="#问题建模" class="headerlink" title="问题建模"></a>问题建模</h4><p><strong>坐标系选择</strong>：首先，我们选择一个适当的坐标系，其中A点为原点，A到B的方向为x轴，垂直于x轴的方向为y轴，垂直于xz平面的方向为z轴,AB距离为L。</p>
+<p><strong>雨速度</strong>：雨的速度可以用一个速度向量$\mathbf{V_{\text{rain}}} &#x3D; (V_x, V_y, V_z)$来表示，其中$V_x$、$V_y$、$V_z$分别代表雨的速度在x、y、z方向上的分量。</p>
+<p><strong>人的长方体模型</strong>：我们可以将人看作一个长方体，长、宽、高分别为$L, W, H$。这个长方体的一侧（面积$A_{\text{side}}$）朝向x轴，另一侧（面积$A_{\text{top}}$）朝向z轴，底部（面积$A_{\text{bottom}}$）朝向xy平面。这个长方体的朝向与人的行走方向一致。</p>
+<p><strong>通量概念</strong>：根据通量概念，淋雨量与雨速与人的相对速度之间的点积有关。淋雨量可以表示为通量的积分，即积分雨速与人相对速度的点积关于长方体表面积的曲面积分。</p>
+<p>$$\text{淋雨量} &#x3D; \iint_{\text{长方体表面}} \mathbf{V_{\text{rain}}}\cdot \mathbf{V_{\text{relative}}} , dA$$</p>
+<p>这里，$\mathbf{V_{\text{relative}}}$ 表示人的相对速度，它是人的行走速度减去雨速，可以表示为 $(V_{\text{walk}} - V_x, -V_y, -V_z)$。</p>
+<h4 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h4><p>我们的目标是找到一个人的行走速度 $V_{\text{walk}}$，使得上述曲面积分最小。这是一个优化问题。我们可以采取以下步骤：</p>
+<ol>
+<li><p>计算长方体的总表面积，其中包括侧面积、顶部面积和底部面积。</p>
+<p>$$\text{总表面积} &#x3D; 2 \cdot (A_{\text{side}} + A_{\text{top}} + A_{\text{bottom}})$$</p>
+</li>
+<li><p>计算淋雨量的曲面积分：</p>
+<p>$$\text{淋雨量} &#x3D; \iint_{\text{长方体表面}} \mathbf{V_{\text{rain}}}\cdot \mathbf{V_{\text{relative}}} , dA$$</p>
+</li>
+<li><p>求解最小淋雨量的行走速度 $V_{\text{walk}}$，通过最小化目标函数：</p>
+<p>$$\text{目标函数} &#x3D; \text{总表面积} \cdot \text{淋雨量}$$</p>
+</li>
+</ol>
+<p>当淋雨量正比于$L&#x2F;v_{\text{walk}}$以及向量$(|v_{\text{walk}} - V_x|, |0 - V_y|, |0 - V_z|)$与身体长宽高$(L, W, H)$的比例时，我们重新分析淋雨量$Q$的最小化问题。</p>
+<ol>
+<li><p>定义淋雨量$Q$：</p>
+<p>$$Q \propto k \cdot \frac{L}{v_{\text{walk}}} \cdot (|v_{\text{walk}} - V_x|, |0 - V_y|, |0 - V_z|) \cdot (L, W, H)$$</p>
+<p>其中，$k$是一个比例常数。</p>
+</li>
+<li><p>展开点积的计算：</p>
+<p>$$Q \propto k \cdot \frac{L}{v_{\text{walk}}} \cdot (|v_{\text{walk}} - V_x|, |0 - V_y|, |0 - V_z|) \cdot (L, W, H)$$<br>$$Q \propto k \cdot \frac{L^2}{v_{\text{walk}}} \cdot (|v_{\text{walk}} - V_x|, 0, 0) \cdot (1, W, H)$$<br>$$Q \propto k \cdot \frac{L^2}{v_{\text{walk}}} \cdot |v_{\text{walk}} - V_x| \cdot W \cdot H$$</p>
+</li>
+<li><p>考虑最小化$Q$，可以将问题分解为最小化每个分量：</p>
+<ul>
+<li>为了使$Q$最小，我们需要最小化$|v_{\text{walk}} - V_x|$，即使行走速度$v_{\text{walk}}$尽量接近雨速度$V_x$，以减小在x方向上的淋雨。</li>
+<li>同时，我们也需要考虑最大化$W$和$H$，以增加淋雨量的分母，从而减小淋雨量$Q$。</li>
+</ul>
+</li>
+</ol>
+<h4 id="Matlab代码"><a href="#Matlab代码" class="headerlink" title="Matlab代码"></a>Matlab代码</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 雨速度分量</span></span><br><span class="line">Vx = <span class="number">5</span>;  <span class="comment">% 假设 x 方向上的雨速度是 5 m/s</span></span><br><span class="line">Vy = <span class="number">2</span>;  <span class="comment">% 假设 y 方向上的雨速度是 2 m/s</span></span><br><span class="line">Vz = <span class="number">3</span>;  <span class="comment">% 假设 z 方向上的雨速度是 3 m/s</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 人的参数</span></span><br><span class="line">L = <span class="number">1</span>;  <span class="comment">% 人的长</span></span><br><span class="line">W = <span class="number">0.2</span>;  <span class="comment">% 人的宽</span></span><br><span class="line">H = <span class="number">1.8</span>;  <span class="comment">% 人的高</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 走的距离（假定为 50 米）</span></span><br><span class="line">distance = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建速度范围</span></span><br><span class="line">v_walk = <span class="number">0</span>:<span class="number">0.1</span>:<span class="number">10</span>;  <span class="comment">% 行走速度范围从 0 到 10 m/s</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 初始化淋雨量数组</span></span><br><span class="line">Q = <span class="built_in">zeros</span>(<span class="number">1</span>, <span class="built_in">numel</span>(v_walk));</span><br><span class="line"></span><br><span class="line"><span class="comment">% 计算淋雨量</span></span><br><span class="line">k = <span class="number">1</span>;  <span class="comment">% 比例常数</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">numel</span>(v_walk)</span><br><span class="line">    Q(<span class="built_in">i</span>) = k * (distance^<span class="number">2</span> / v_walk(<span class="built_in">i</span>)) * <span class="built_in">abs</span>(v_walk(<span class="built_in">i</span>) - Vx) * W * H;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘制淋雨量与行走速度的关系</span></span><br><span class="line"><span class="built_in">figure</span>;</span><br><span class="line"><span class="built_in">plot</span>(v_walk, Q);</span><br><span class="line">xlabel(<span class="string">&#x27;行走速度 (m/s)&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;淋雨量 Q&#x27;</span>);</span><br><span class="line">title([<span class="string">&#x27;淋雨量与行走速度（固定走的距离为 &#x27;</span> num2str(distance) <span class="string">&#x27; 米）的关系&#x27;</span>]);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="file:///C:\Users\lty\AppData\Local\Temp\ConnectorClipboard1909015199863227229/image16984792156090.png" alt="img"></p>
+<h4 id="问题结论"><a href="#问题结论" class="headerlink" title="问题结论"></a>问题结论</h4><p>通过调整行走速度$v_{\text{walk}}$，可以最小化淋雨量$Q$。此外，在$W$和$H$不变的情况下，提高速度$v_{\text{walk}}$也有助于减小淋雨量。这意味着在每个方向上尽量与雨速度接近，以及尽量提高速度$v_{\text{walk}}$，都可以减小淋雨量。</p>
+<p>这个建模过程考虑了行走的距离$L$和身体长宽高$(L, W, H)$与行走速度$v_{\text{walk}}$之间的关系，以最小化淋雨量$Q$。</p>
 ]]></content>
-      <tags>
-        <tag>照片</tag>
-      </tags>
   </entry>
 </search>

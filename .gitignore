@@ -1,1 +1,15 @@
-﻿_site
+_site/
+.sass-cache
+.jekyll-cache/
+.jekyll-metadata
+vendor
+dist-newstyle/
+
+.idea/
+git_backup
+.rubocop.yml
+*.swp
+
+.vscode/
+**/bootstrap/
+_tmp/

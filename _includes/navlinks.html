@@ -1,17 +1,21 @@
-<div class="post-navi">
-	{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-	{% if page.previous %}
-		{% assign prev = page.previous %}
-		<div class="post-navi-item navi-prev">
-			<div class="post-navi-date">{{ prev.date | date: date_format }}</div>
-			<div class="post-navi-title"><a href="{{ prev.url }}" rel="prev">{{ prev.title | markdownify_no_p }}</a></div>
-		</div>
-	{% endif %}
-	{% if page.next %}
-		{% assign next = page.next %}
-		<div class="post-navi-item navi-next" href="{{ next.url }}">
-			<div class="post-navi-date">{{ next.date | date: date_format }}</div>
-			<div class="post-navi-title"><a href="{{ next.url }}" rel="next">{{ next.title | markdownify_no_p }}</a></div>
-		</div>
-	{% endif %}
+<hr>
+<div class="post_navi">
+  {%- if page.previous.url -%}
+  <a class="post_navi-item nav_prev" href="{{ page.previous.url }}" title="{{ page.previous.title }}">
+    <div class="post_navi-arrow">&lt;</div><div class="post_navi-label">Previous Post</div><div><span>{{ page.previous.title }}</span></div>
+  </a>
+  {%- else -%}
+  <a class="post_navi-item nav_prev" href="{{ 'archive.html' | absolute_url }}" title="Blog Archive">
+    <div class="post_navi-arrow">&lt;</div><div class="post_navi-label">Blog Archive</div><div><span>Archive of all previous blog posts</span></div>
+  </a>
+  {%- endif -%}
+  {%- if page.next.url -%}
+  <a class="post_navi-item nav_next" href="{{ page.next.url }}" title="{{ page.next.title }}">
+    <div class="post_navi-arrow">&gt;</div><div class="post_navi-label">Next Post</div><div><span>{{ page.next.title }}</span></div>
+  </a>
+  {%- else -%}
+  <a class="post_navi-item nav_next" href="{{ 'archive.html' | absolute_url }}" title="Blog Archive">
+    <div class="post_navi-arrow">&gt;</div><div class="post_navi-label">Blog Archive</div><div><span>Archive of all previous blog posts</span></div>
+  </a>
+  {%- endif -%}
 </div>

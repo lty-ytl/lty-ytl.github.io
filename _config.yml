@@ -1,228 +1,42 @@
----
-git_repo: https://github.com/UlyssesZh/UlyssesZh.github.io
-title: Ulysses' trip
-author:
-  name: UlyssesZhan
-  email: ulysseszhan@gmail.com
-timezone: America/Los_Angeles
-lang: en-US
-tagline: Somewhere with strange thoughts
-description: Here we are at the awesome (awful) blog written by UlyssesZhan!
-locale: en_US
-logo: /assets/images/logos/78(.png
-baseurl: ''
-url: https://UlyssesZh.github.io
-domain: UlyssesZh.github.io
-license: '[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0){rel=license}'
-show_excerpts: true
-markdown: Paru
-paru:
-  options:
-    from: markdown+link_attributes+pipe_tables+escaped_line_breaks+space_in_atx_header+header_attributes+line_blocks+inline_code_attributes
-    no_highlight: true
-    columns: 10000 # prevent colgroup elements
-    preserve_tabs: true
-    filter:
-      - pandoc-crossref
-      - pandoc-katex
-      - _exe/my-pandoc-filter.rb
-    metadata:
-      - crossrefYaml=bootstrap/crossref.yml
-      - rougeConfig=bootstrap/rouge.yml
-  crossref:
-    link_references: true
-    table_eqns: true
-    set_label_attribute: true
-    eqn_prefix_template: $$i$$
-    eqn_block_template: >-
-      `<table class="katex-display-table"><tr class="odd"><td class="katex-display-numbered">`{=html}
-      $$t$$
-      `</td><td class="katex-display-number">`{=html}
-      $$i$$
-      `</td></tr></table>`{=html}
-  rouge:
-    formatter: table
-    formatter_options:
-      code_class: highlight language-%{lang}
-  katex:
-    output: html
-    macros:
-      '\mbb': '\mathbb'
-      '\mfk': '\mathfrak'
-      '\mrm': '\mathrm'
-      '\trm': '\textrm'
-      '\mbf': '\mathbf'
-      '\tbf': '\textbf'
-      '\mit': '\mathit'
-      '\msf': '\mathsf'
-      '\mcal': '\mathcal'
-      '\mscr': '\mathscr'
-      '\mtt': '\mathtt'
-      '\tit': '\textit'
-      '\ttt': '\texttt'
-      '\bs': '\boldsymbol'
+title: "笔和纸"
+author: "liu"
+description: "写点东西" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
 
-      '\bN': '\mbb{N}'
-      '\bZ': '\mbb{Z}'
-      '\bQ': '\mbb{Q}'
-      '\bR': '\mbb{R}'
-      '\bC': '\mbb{C}'
+# Email / Social media user names used by the minima theme:
+# All of these are optional and can be removed or commented out
+#email: "l08977590@mail.com"
+#twitter_username: "twitteruser"
+github_username: "lty-ytl"
+#linkedin_username: "linkedinuser"
+#facebook_username: username
+#flickr_username: username
+#instagram_username: username
+#pinterest_username: username
+#youtube_username: username
+#googleplus_username: +username
 
-      '\alp': '\alpha'
-      '\gma': '\gamma'
-      '\Gma': '\Gamma'
-      '\dlt': '\delta'
-      '\Dlt': '\Delta'
-      '\eps': '\epsilon'
-      '\veps': '\varepsilon'
-      '\vphi': '\varphi'
-      '\tht': '\theta'
-      '\Tht': '\Theta'
-      '\kap': '\kappa'
-      '\lmd': '\lambda'
-      '\Lmd': '\Lambda'
-      '\omg': '\omega'
-      '\Omg': '\Omega'
-      '\sgm': '\sigma'
-      '\Sgm': '\Sigma'
+#########################################################################################
+######### Nothing below needs to be changed (unless you know what you're doing) #########
+#########################################################################################
+theme: "minima"
 
-      '\divby': '\divisionsymbol'
-      '\ceq': '\coloneqq'
-      '\eqc': '\eqqcolon'
+rss: rss
 
-      '\i': '\mrm{i}'
-      '\e': '\mrm{e}'
-      '\st': '\mrm{st}'
-      '\d': '\mrm{d}'
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+    
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
 
-      '\fr': '\frac'
-      '\dfr': '\dfrac'
-      '\tfr': '\tfrac'
-      '\opn': '\operatorname'
-      '\bhat': '\hat{\mbf{\bs{#1}}}'
-      '\func': '#1\colon #2\to #3'
-      '\vfunc': '\func{#1}{#2}{#3},\quad #4\longmapsto #5'
-      '\fc': '#1\mathchoice{\!}{\!}{}{}\p{#2}'
-      '\bfc': '#1\mathchoice{\!}{\!}{}{}\b{#2}'
-      '\Bfc': '#1\mathchoice{\!}{\!}{}{}\B{#2}'
-      '\opc': '\fc{\opn{#1}}{#2}'
-      '\bopc': '\bfc{\opn{#1}}{#2}'
-      '\Bopc': '\Bfc{\opn{#1}}{#2}'
-      '\set': '\left\{#1\;\middle|\;#2\right\}'
-      '\abar': '\left.#1\right|_{#2}'
+titles_from_headings:
+  strip_title: true
+  collections: true
 
-      '\p': '\left(#1\right)'
-      '\b': '\left[#1\right]'
-      '\B': '\left\{#1\right\}'
-      '\v': '\left|#1\right|'
-      '\V': '\left\|#1\right\|'
-      '\a': '\left\langle #1\right\rangle'
-      '\floor': '\left\lfloor #1\right\rfloor'
-      '\ceil': '\left\lceil #1\right\rceil'
-      '\round': '\left\lfloor #1\right\rceil'
-      '\bra': '\left\langle #1\right|'
-      '\ket': '\left|#1\right\rangle'
-      '\braket': '\left\langle #1\middle|#2\right\rangle'
-      '\mel': '\left\langle #1\middle|#2\middle|#3\right\rangle'
-
-gitalk:
-  enable_in_development: false
-  client_id: 49611570ab5cf827576b
-  client_secret: 6dedc6014eb010990d395ae8aae632c7811dfeff
-  repo: UlyssesZh.github.io
-  owner: UlyssesZh
-  admin:
-    - UlyssesZh
-header_pages:
-  - my_pages/about.md
-  - my_pages/archives.html
-  - my_pages/contact.md
-  - my_pages/friends.md
-theme: minima
-minima:
-  skin: my-skin
-  date_format: '%b %-d, %Y'
-  social_links:
-    - platform: mastodon
-      user_url: https://mastodon.social/@ulysseszhan
-      account_id: 111291458352797823
-    - platform: github
-      user_url: https://github.com/UlyssesZh
-    - platform: telegram
-      user_url: https://t.me/ulysseszhan
-    - platform: youtube
-      user_url: https://youtube.com/@ulysseszhan
-    - platform: linkedin
-      user_url: https://linkedin.com/in/%E6%9C%89%E4%B8%98-%E8%A9%B9-7715a4155
-    - platform: stackoverflow
-      user_url: https://stackoverflow.com/u/10245493
-    - platform: x
-      user_url: https://x.com/UlyssesZhan
-    - platform: facebook
-      user_url: https://facebook.com/YouqiuZhan
-    - platform: instagram
-      user_url: https://instagram.com/ulysseszhan
-    - platform: pinterest
-      user_url: https://pinterest.com/ulysseszhan
-    - platform: flickr
-      user_url: https://flickr.com/ulysseszhan
-future: true
 defaults:
   - scope:
-      path: ''
-      type: posts
+      path: ""
+      type: post
     values:
-      toc: true
-exclude:
-  - '**/LICENSE*'
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-  - Rakefile
-  - .git/
-  - .idea/
-  - .github/
-  - '**/*.yml'
-  - assets/images/covers/*.txt
-  - bin-dev
-  - cabal.lock
-  - cargo.lock
-google_analytics: G-7TSJ5VM6YC
-webmaster_verifications:
-  google: ZuV45Knwuwl49Nvh9UsDzniZ-3qy3bGhBPofLK3SZPw
-  baidu: zBiGMiCwrA
-  bing: 5E8C434CB5D1F1948B192273BA4BD084
-covers_path: /assets/images/covers/
-figures_path: /assets/images/figures/
-seo_paginator_message: 'Page %<current>s/%<total>s - '
-jekyll-archives:
-  enabled: all
-  layout: archive
-  titles:
-    year: Archive of posts in %Y
-    month: Archive of posts in %b, %Y
-    day: Archive of posts on %b %-d, %Y
-    tag: Archive of posts with tag "%s"
-    category: Archive of posts in category "%s"
-  permalinks:
-    year: /archives/:year/
-    month: /archives/:year/:month/
-    day: /archives/:year/:month/:day/
-    tag: /archives/tag/:name/
-    category: /archives/category/:name/
-pagination:
-  enabled: true
-  collection: posts
-  permalink: /page/:num/
-  title: :title
-  per_page: 10
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 2
-    after: 2
-sass:
-  sourcemap: development
-rpg-map:
-  enabled:
-    - test
+      tags: Other

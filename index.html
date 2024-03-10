@@ -45,5 +45,10 @@
     <footer>
         <p>&copy; 2024 我的主页</p>
     </footer>
+    <div id = "result"></div>
+    <script>
+        var date = new Date(document.lastModified);
+        document.getElementById("result").innerHTML = "<i>Last updated:</i> " + date.toISOString().split('T')[0];
+    </script>  
 </body>
 </html>

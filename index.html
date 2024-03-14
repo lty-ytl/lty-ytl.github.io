@@ -26,18 +26,42 @@
     
     <section id="contact">
         <h2>联系我</h2>
-            <p>Email: l908977590@gmail.com</p>
 
-            <p>GitHub: <a href="https://github.com/lty-ytl">lty-ytl</a></p>
+        
+        <p>📫: <a href="mailto:l908977590@gmail.com">l908977590@gmail.com</a></p>
+
+            <p><a href="https://www.instagram.com/pink.waite/"><img src="https://www.instagram.com/static/images/ico/favicon-200.png/ab6eff595bb1.png" alt="Instagram" width="16" height="16"> pink.waite</a></p>
+
+            <p><a href="https://github.com/lty-ytl"><img src="https://github.com/favicon.ico" alt="GitHub" width="16" height="16"> lty-ytl</a></p>
+
+
     </section>
+  
     
-    <footer>
-        <p>&copy; 2024 我的主页</p>
-    </footer>
-    <div id = "result"></div>
+    <br>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+        }
+        table td {
+            padding: 5px;
+            border: none;
+        }
+        table td:first-child {
+            font-style: italic;
+            color: #666; /* 修改字体颜色 */
+        }
+    </style>
+    
+    <div id="result"></div>
     <script>
         var date = new Date(document.lastModified);
-        document.getElementById("result").innerHTML = "<i>Last updated:</i> " + date.toISOString().split('T')[0];
-    </script>  
+        var formattedDate = date.toISOString().split('T')[0];
+        var tableHTML = "<table><tr><td><i>Last updated:</i></td><td>" + formattedDate + "</td></tr></table>";
+        document.getElementById("result").innerHTML = tableHTML;
+    </script>
+  
 </body>
 </html>

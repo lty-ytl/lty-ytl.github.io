@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    code {
-      white-space: pre-wrap;
-      font-family: 'Jetbrains mono', monospace;
-      font-size: 14px;
-      background-color: #f4f4f4;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      display: block;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css">
+<style>
+    .code-container {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #1e1e1e; /* Darker background color */
     }
-  </style>
-   <!-- 引入 Prism.js 的 CSS 文件 -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css">
-   <!-- 引入 Prism.js 的 JavaScript 文件 -->
-   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.js"></script>
-  <title>Python Code</title>
+    .code {
+        font-family: 'Courier New', Courier, monospace;
+        white-space: pre-wrap;
+        padding: 1em;
+        margin: 0;
+        background-color: #1e1e1e; /* Darker background color */
+    }
+    .copy-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #666; /* Grey background color */
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .language-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #666; /* Grey background color */
+        color: #fff;
+        padding: 5px 10px; /* Increased padding to cover the whole line */
+        border-radius: 5px 0 0 0;
+        width: calc(100% - 5px); /* Adjusted width to cover the whole line */
+    }
+</style>
+<title>Code Example</title>
 </head>
 <body>
-    <h1>Python绘制饼状图示例</h1>
+<div class="code-container">
+    <span class="language-tag">Python</span>
+    <pre class="code">
+<code class="language-python">
+# Example Python code
+def greet():
+    print("Hello, world!")
 
-    <p>
-      在这个示例中，我们将使用 <b>Python</b> 中的 <b>matplotlib</b> 库来绘制饼状图。
-      <br>
-      下面是一个简单的 Python 代码示例：
-    </p>
-<code>
-import matplotlib.pyplot as plt
-from matplotlib import font_manager
-
-# 数据
-labels = ['Glare', 'Brightness', 'Denseness', 'Population', 'Development', 'Law', 'Climate', 'Geography', 'Biodiversity', 'Pollution']
-sizes = [0.142857142857143, 0.285714285714286, 0.571428571428571, 0.285714285714286, 0.571428571428571, 0.142857142857143, 0.184607876049433, 0.125572837521839, 0.502291350087357, 0.187527936341371]
-
-# 分类
-categories = ['Light', 'Society', 'Nature']
-category_colors = {'Light': 'gold', 'Society': 'lightcoral', 'Nature': 'lightblue'}
-
-# 指标颜色
-indicator_colors = [category_colors['Light'], category_colors['Light'], category_colors['Light'],
-                    category_colors['Society'], category_colors['Society'], category_colors['Society'],
-                    category_colors['Nature'], category_colors['Nature'], category_colors['Nature'], category_colors['Nature']]
-
-# 使用微软雅黑字体
-font_path = font_manager.findSystemFonts(fontpaths=None, fontext='ttf')[0]
-font_prop = font_manager.FontProperties(fname=font_path, size=10)
-
-# 饼状图
-fig, ax = plt.subplots(figsize=(10, 10))
-wedges, texts, autotexts = ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=indicator_colors, wedgeprops=dict(width=0.4, edgecolor='w'), textprops=dict(fontproperties=font_prop))
-
-# 添加数字标签在上方
-for text, autotext in zip(texts, autotexts):
-    text.set(size=10, weight='bold', color='black')  # 标签颜色为黑色
-    autotext.set(size=10, weight='bold', va='center')
-
-# 添加标题
-plt.title('Importance of Indicators', fontsize=16, fontweight='bold')
-
-# 添加图例
-legend_labels = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=category_colors[cat], markersize=10, label=cat) for cat in categories]
-plt.legend(handles=legend_labels, labels=categories, loc='upper left', bbox_to_anchor=(1, 1), fontsize=10)
-
-# 设置坐标轴刻度为空
-plt.xticks([])
-plt.yticks([])
-
-# 调整布局
-plt.tight_layout()
-
-# 显示图表
-plt.show()
+greet()
 </code>
+    </pre>
+    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+<script>
+    function copyCode(button) {
+        var codeBlock = button.parentNode.querySelector('.code');
+        var range = document.createRange();
+        range.selectNode(codeBlock);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        button.textContent = "Copied!";
+        setTimeout(function() {
+            button.textContent = "Copy";
+        }, 2000);
+    }
+</script>
 </body>
 </html>
+
+
+    
 

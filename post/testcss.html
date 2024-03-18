@@ -1,44 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="pycode.css"> <!-- 引用样式文件 -->
-<script src="pycode.js" defer></script>
-<title>Code Example</title>
+    <link href="themes/prism.css" rel="stylesheet" />
 </head>
 <body>
-<div class="code-container">
-    <span class="language-tag">Python</span>
-    <pre class="code">
-<code class="language-python">
-# Example Python code
-def greet():
-    print("Hello, world!")
+    <script src="themes/prism.js"></script>
+    <pre><code class="language-python"  >
+def greet(name):
+    print("Hello, " + name + "!")   
+greet("World")
+        </code></pre>
 
-greet()
-</code>
-    </pre>
-    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
-<script>
-    function copyCode(button) {
-        var codeBlock = button.parentNode.querySelector('.code');
-        var range = document.createRange();
-        range.selectNode(codeBlock);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        window.getSelection().removeAllRanges();
-        button.textContent = "Copied!";
-        setTimeout(function() {
-            button.textContent = "Copy";
-        }, 2000);
-    }
-</script>
 </body>
 </html>
 

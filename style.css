@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url('fonts/Comic Sans MS/Comic Sans MS.ttf') format('truetype');
+}
+        /* 使用 CSS 设置标题的字体 */
+        h1 {
+            font-family: Comic Sans MS ; 
+            font-size:50px;
+        }
+                /* 使用 CSS 设置标题的字体 */
+        h2 {
+            font-family: Comic Sans MS ; 
+
+            font-weight: 400;
+            font-size:30px;
+        }
+        body {
+            font-family:Comic Sans MS,华文楷体; /* 设置正文字体为 Arial 或者 sans-serif */
+            font-size:18px;
+        }
+                
+        #contact {
+            font-family: Comic Sans MS ; /* 设置联系部分字体为 Arial 或者 sans-serif */
+            font-size: 16px; /* 设置联系部分字体大小为 16 像素 */
+            /* 这里可以添加其他样式，比如颜色等 */
+        }

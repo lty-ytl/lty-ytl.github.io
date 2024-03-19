@@ -18,4 +18,6 @@
             font-family:Comic Sans MS,华文楷体; /* 设置正文字体为 Arial 或者 sans-serif */
             font-size:18px;
         }
-                
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }       

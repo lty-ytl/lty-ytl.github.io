@@ -6,6 +6,7 @@
         h1 {
             font-family: Comic Sans MS ; 
             font-size:50px;
+            text-align: center;
         }
                 /* 使用 CSS 设置标题的字体 */
         h2 {
@@ -13,11 +14,14 @@
 
             font-weight: 400;
             font-size:30px;
+            text-align: center;
         }
         body {
             font-family:Comic Sans MS,华文楷体; /* 设置正文字体为 Arial 或者 sans-serif */
             font-size:18px;
+            text-align: center;
         }
         code {
             font-family: 'JetBrains Mono', monospace;
+            text-align: center;
         }       

@@ -24,4 +24,11 @@
         code {
             font-family: 'JetBrains Mono', monospace;
             text-align: center;
-        }       
+        }   
+        #result {
+            font-family: Comic Sans MS, Arial, sans-serif;
+            margin-top: 10px;
+            text-align: right;
+            font-style: italic;
+            color: #4a4949;
+        }

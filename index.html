@@ -13,16 +13,15 @@
     </style>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
-   
-
 
 </head>
+
 <body>
+
     <header>
         <h1>otak's trip</h1>
     </header>
 
-  
     <section id="about">
         <h2>About me</h2>
         <p>2003 </p>
@@ -59,30 +58,15 @@
         </script>
     </section>   
 
-    <br>
-    <style>
-        table {
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-family: Arial, sans-serif;
-        }
-        table td {
-            padding: 5px;
-            border: none;
-        }
-        table td:first-child {
-            font-style: italic;
-            color: #666; /* 修改字体颜色 */
-        }
-    </style>
-    
-    <div id="result"></div>
-    <script>
-        var date = new Date(document.lastModified);
-        var formattedDate = date.toISOString().split('T')[0];
-        var tableHTML = "<table><tr><td><i>Last updated:</i></td><td>" + formattedDate + "</td></tr></table>";
-        document.getElementById("result").innerHTML = tableHTML;
-    </script>
-  
+        <br>
+    <!-- 设置最后更新日期 -->
+   <div id="result"></div>
+   <script>
+       var date = new Date(document.lastModified);
+       var formattedDate = date.toISOString().split('T')[0];
+       document.getElementById("result").innerHTML = "Last updated: " + formattedDate;
+   </script>
+
+
 </body>
 </html>

@@ -4,20 +4,20 @@
 }
         /* 使用 CSS 设置标题的字体 */
         h1 {
-            font-family: Comic Sans MS ; 
+            font-family: Times New Roman ; 
             font-size:50px;
           
         }
                 /* 使用 CSS 设置标题的字体 */
         h2 {
-            font-family: Comic Sans MS ; 
+            font-family: Times New Roman ; 
 
             font-weight: 400;
             font-size:30px;
           
         }
         body {
-            font-family:Comic Sans MS,华文楷体; /* 设置正文字体为 Arial 或者 sans-serif */
+            font-family:Times New Roman,华文楷体; /* 设置正文字体为 Arial 或者 sans-serif */
             font-size:18px;
           
         }

@@ -8,32 +8,37 @@
     src: url('fonts/Fontin-Regular/Fontin-Regular.otf') format('truetype');
 }
 
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono/') format('truetype');
+}
+
 
         /* 使用 CSS 设置标题的字体 */
         h1 {
-            font-family: Fontin-Regular ; 
+            font-family: Times New Roman; 
             font-size:50px;
           
         }
                 /* 使用 CSS 设置标题的字体 */
         h2 {
-            font-family: Fontin-Regular ; 
+            font-family: Times New Roman; 
 
             font-weight: 400;
             font-size:30px;
           
         }
         body {
-            font-family: Fontin-Regular ,宋体; /* 设置正文字体为 Arial 或者 sans-serif */
+            font-family: Times New Roman ,宋体; /* 设置正文字体为 Arial 或者 sans-serif */
             font-size:18px;
           
         }
-        /* code {
+         code {
             font-family: 'JetBrains Mono', monospace;
           
-        }    */
+        } 
         #result {
-            font-family: Comic Sans MS, Arial, sans-serif;
+            font-family: Fontin-Regular, Arial, sans-serif;
             margin-top: 10px;
             text-align: right;
             font-style: italic;
